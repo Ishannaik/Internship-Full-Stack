@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Medical Item</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='update_medical_item.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Medical Item</h1>
+      <form method="POST">
+        <label for="item_name">Item Name:</label>
+        <input
+          type="text"
+          id="item_name"
+          name="item_name"
+          value="{{ medical_item.item_name }}"
+          required
+        />
+
+        <label for="category">Category:</label>
+        <input
+          type="text"
+          id="category"
+          name="category"
+          value="{{ medical_item.category }}"
+          required
+        />
+
+        <label for="price">Price:</label>
+        <input
+          type="number"
+          id="price"
+          name="price"
+          step="0.01"
+          min="0"
+          value="{{ medical_item.price }}"
+          required
+        />
+
+        <label for="stock_quantity">Stock Quantity:</label>
+        <input
+          type="number"
+          id="stock_quantity"
+          name="stock_quantity"
+          min="0"
+          value="{{ medical_item.stock_quantity }}"
+          required
+        />
+
+        <input type="submit" value="Update" />
+
+        <!-- Display error messages if any -->
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+</html>

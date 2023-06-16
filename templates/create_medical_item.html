@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a New Medical Item</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='create_medical_item.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Create a New Medical Item</h1>
+    <form method="POST">
+      <label for="item_id">Item ID:</label>
+      <input type="number" id="item_id" name="item_id" required />
+
+      <label for="item_name">Item Name:</label>
+      <input type="text" id="item_name" name="item_name" required />
+
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" required />
+
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        step="0.01"
+        min="0"
+        required
+      />
+
+      <label for="stock_quantity">Stock Quantity:</label>
+      <input
+        type="number"
+        id="stock_quantity"
+        name="stock_quantity"
+        min="0"
+        required
+      />
+
+      <input type="submit" value="Create" />
+
+      <!-- Display error messages if any -->
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
+    </form>
+  </body>
+</html>
